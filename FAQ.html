@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Asmae Elhaddouchi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    // Sélectionner l'icône du menu et la barre de navigation
+    const menuIcon = document.getElementById('menu');
+    const navbar = document.querySelector('.navbar');
+
+    // Ajouter un événement de clic sur l'icône du menu
+    menuIcon.addEventListener('click', () => {
+        // Basculer la classe 'active' sur le menu pour afficher/masquer la navigation
+        navbar.classList.toggle('active');
+        
+        // Ajouter ou enlever la classe active sur l'icône pour changer son état (si nécessaire)
+        menuIcon.classList.toggle('active');
+    });
+</script>
+
+<style>
+
+    /* Général styles for the header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 10%;
+    background: rgba(216, 207, 187, 0.8); /* Add transparency */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    transition: 0.3s ease;
+}
+
+.logo {
+    font-size: 3rem;
+    color: #000000; /* Logo text color */
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo span {
+    color: #b7937a; /* Highlight color for the span */
+    text-shadow: 0 0 25px #83604c;
+}
+
+#menu {
+    font-size: 2.5rem;
+    color: #000000;
+    cursor: pointer;
+    display: none; /* Hide menu icon by default, assuming you have a responsive design */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: #5a5a5a; /* Base color for links */
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    color: #83604c; /* Color on hover and for active link */
+    border-bottom: 3px solid #83604c; /* Underline color on hover/active */
+}
+
+/* FAQ Section */
+.faq {
+    padding: 5rem 12%;
+    background-color: rgba(216, 207, 187, 0.8);
+    color: #000;
+}
+
+.heading {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #83604c;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.faq-item {
+    background-color: #cfc3b7;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item h4 {
+    font-size: 1.8rem;
+    color: #83604c;
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    font-size: 1.5rem;
+    color: #000000;
+}
+
+.faq-item:hover {
+    background-color: #b7937a;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 2rem 5%;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    .navbar {
+        display: none; /* Hide navbar by default on mobile */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(216, 207, 187, 0.8);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #menu.active + .navbar {
+        display: flex; /* Show navbar when active */
+        max-height: 500px;
+    }
+
+    .navbar a {
+        padding: 1.5rem;
+        margin-left: 0;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .home-content {
+        display: inline-block;
+        flex-direction: column;
+        align-items: baseline;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .home-content h3 {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        font-size: 3.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 7rem;
+        font-weight: 700;
+        margin-top: 1.5rem;
+        line-height: 1;
+    }
+}
+
+</style>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">ASMAE <span>ELHADDOUCHI</span></a>
+        <i class="fa-solid fa-bars" id="menu"></i>
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            
+        </nav>
+    </header>
+    
+    <section class="faq" id="faq">
+        <h2 class="heading">Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h4>1. What services do you offer?</h4>
+                <p>I offer a comprehensive range of web development services, including website creation, database management, and custom solutions for your digital projects.</p>
+            </div>
+            <div class="faq-item">
+                <h4>2. What technologies do you work with?</h4>
+                <p>I use technologies such as PHP, JavaScript, HTML, CSS, Bootstrap, and SQL databases to create dynamic and functional websites.</p>
+            </div>
+            <div class="faq-item">
+                <h4>3. Do you offer maintenance services?</h4>
+                <p>Yes, I also provide maintenance and update services to ensure your website remains up-to-date and performs well.</p>
+            </div>
+            <div class="faq-item">
+                <h4>4. How can I contact you for a project?</h4>
+                <p>You can contact me via the contact form below or directly by email or phone. I would be happy to discuss your web development needs.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>  
+        </div>
+        <p class="copyright">
+            &copy; ASMAE ELHADDOUCHI All Rights Reserved
+        </p>
+    </footer>
+</body>
+</html>
